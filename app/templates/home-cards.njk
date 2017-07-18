@@ -1,0 +1,52 @@
+<!-- home-cards.njk -->
+<section id="home-big">
+  <div class="hero">
+    {% include "partials/individual-card.njk" %}
+  </div>
+</section>
+
+<section id="home-main">
+  <div class="hero">
+    {% include "partials/individual-card.njk" %}
+  </div>
+  <div class="grid">
+    {% for i in range(0, 3) -%}
+      {% include "partials/individual-card.njk" %}
+    {%- endfor %}
+  </div>
+</section>
+
+<section id="home-second">
+  <div class="hero">
+    {% include "partials/individual-card.njk" %}
+  </div>
+  <div class="grid">
+    {% for i in range(0, 4) -%}
+      {% include "partials/individual-card.njk" %}
+    {%- endfor %}
+  </div>
+</section>
+
+<section id="home-third">
+  <div class="hero">
+    {% include "partials/individual-card.njk" %}
+  </div>
+  <div class="grid">
+    {% for i in range(0, 6) -%}
+      {% include "partials/individual-card.njk" %}
+    {%- endfor %}
+  </div>
+</section>
+
+<section id="home-fourth">
+  <div class="grid">
+    {% for i in range(0, 8) -%}
+      {% include "partials/individual-card.njk" %}
+    {%- endfor %}
+  </div>
+  <div class="hero">
+    {% for i in range(0, 4) -%}
+      {% include "partials/individual-card.njk" %}
+    {%- endfor %}
+  </div>
+</section>

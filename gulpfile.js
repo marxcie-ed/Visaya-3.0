@@ -36,10 +36,10 @@ gulp.task('html', function () {
 
 
 gulp.task('nunjucks', function () {
-    return gulp.src('pages/**/*.+(html|nunjucks)')
+    return gulp.src('app/pages/**/*.+(html|njk)')
         // Renders template with nunjucks
         .pipe(nunjucksRender({
-            path: ['templates']
+            path: ['app/templates']
         }))
         // output files in app folder
         .pipe(gulp.dest('./'));
@@ -54,4 +54,5 @@ gulp.task('default', function () {
     gulp.watch('css/src/**/*.scss', ['sass']);
     gulp.watch('*.html', ['html']);
     gulp.watch('images/**/*', ['image']);
+    gulp.watch('app/**/*.njk', ['nunjucks']);
 });
