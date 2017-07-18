@@ -1,0 +1,39 @@
+$bp-small:      768px;  // 768px
+$bp-medium:     1024px; // 1024px
+$bp-large:      1366px; // 1366px
+$bp-xlarge:     1920px; // 1920px
+$bp-xxlarge:    2560px; // 2560px
+
+$mq-xsmall: "(max-width: #{$bp-small}-1px)";
+$mq-small: "(min-width: #{$bp-small}) and (max-width: #{$bp-medium}-1px)";
+$mq-medium: "(min-width: #{$bp-medium}) and (max-width: #{$bp-large}-1px)";
+$mq-large: "(min-width: #{$bp-large}) and (max-width: #{$bp-xlarge}-1px)";
+$mq-xlarge: "(min-width: #{$bp-xlarge}) and (max-width: #{$bp-xxlarge}-1px)";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
+
+$mobile:            0;
+$tablet-portrait:   $bp-small;
+$tablet-landscape:  $bp-medium;
+$desktop:           $bp-large;
+$desktop-hd:        $bp-xlarge;
+$desktop-uhd:       $bp-xxlarge;
+
+@mixin mq($from:null, $to:null) {
+    @if $to == null {
+        @media (min-width: #{'$' + $from}) {
+            @content;
+        }
+    }
+    @else if $from == null {
+        @media (max-width: #{'$' + $to}) {
+            @content;
+        }
+    }
+    @else 
+    {
+        @media (min-width: #{'$' + $from}) and (max-width: #{'$' + $to} - 1px) {
+            @content;
+        }
+    }
+}

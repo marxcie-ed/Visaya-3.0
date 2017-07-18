@@ -1,0 +1,100 @@
+@import '_variables.scss';
+
+@mixin reset() {
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    * {
+        margin: 0;
+        padding: 0;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+@mixin margin($m:0) {
+    @include reset();
+    @if $m == 0 {
+        margin-left: $grid-gutter;
+        margin-right: $grid-gutter;
+    } @else {
+        margin-left: col-padding($m);
+        margin-right: col-padding($m);
+    }
+}
+
+@mixin create-grid(
+    $col, 
+    $inner-columns, 
+    $inner-rows,
+    $w: $width / $cols * $col,
+    $grid-gutter: $grid-gutter) {
+        @include cols($col, $w, $grid-gutter);
+        @include reset();
+        .card {
+            $total: $inner-columns * $inner-rows;
+            $inner-col-w: $col / $inner-columns;
+            @include cols($inner-col-w);
+            @include rows($inner-rows);
+            margin-right: $grid-gutter;
+            margin-bottom: get-rows-spacing($inner-rows);
+            
+            &:nth-child(#{$inner-columns}n) {
+                margin-right: 0;
+            }
+        }
+    
+}
+
+@function calculate-grid(
+    $col,
+    $w: $width / $cols * $col,
+    $grid-gutter: $grid-gutter
+    ) {
+        $grid-total: (($col / $cols) * $grid-gutter) - $grid-gutter;
+        @return calc(#{$w} + #{$grid-total});
+}
+
+@mixin cols(
+    $col,
+    $w: $width / $cols * $col,
+    $grid-gutter: $grid-gutter
+    ) {
+        flex-basis: calculate-grid($col, $w, $grid-gutter);
+        min-width: calculate-grid($col, $w, $grid-gutter); 
+        max-width: calculate-grid($col, $w, $grid-gutter); 
+}
+
+@function col-padding($col: 2) {
+    @return calculate-grid($col); 
+}
+
+@mixin offset-left(
+    $offset: 0,
+    $o: $width / $cols * $offset
+    ) {
+        $grid-f-total: (($offset / $cols) * $grid-gutter);
+        margin-left: calc(#{$o} + #{$grid-f-total});
+}
+
+@mixin offset-right(
+    $offset: 0,
+    $o: $width / $cols * $offset
+    ) {
+        $grid-f-total: (($offset / $cols) * $grid-gutter);
+        margin-right: calc(#{$o} + #{$grid-f-total});
+}
+
+@mixin rows($rows) {
+    $rows-spacing:  ($grid-gutter-vertical * ($rows - 1)) / $rows;
+    height: calc((100% / #{$rows}) - #{$rows-spacing});
+}
+
+@function get-rows-spacing($rows) {
+   @return ($grid-gutter-vertical * ($rows - 1)) / $rows;
+}

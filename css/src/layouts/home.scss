@@ -1,0 +1,362 @@
+@import '../base/_variables.scss';
+@import '../base/_functions.scss';
+@import '../components/cards.scss';
+
+section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.grid, .hero {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+@include mq($from:mobile, $to:tablet-portrait) {
+    .grid, .hero {
+//        display: block;
+//        flex-flow: column nowrap;
+    }  
+//    .card {
+//        height: 60vh;;
+//    }
+//    .image-card {
+//        min-height: 40vh;
+//    }
+}
+
+#home-big {
+    @include mq($from:mobile) {
+        .hero {
+            @include cols(14);
+            @include offset-left(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:14, 
+                    $height:8);
+                @include title-setting(
+                    $size:xxl,
+                    $h:center, 
+                    $v:center);
+            }
+        }
+    }
+}
+
+#home-main {
+    @include mq($from:mobile) {
+        .hero {
+            @include cols(14);
+            @include offset-left(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:14, 
+                    $height:3);
+                @include title-setting(
+                    $size:xxl,
+                    $h:center, 
+                    $v:center);
+            }
+        }
+        .grid {
+            @include create-grid(
+                $col: 14, 
+                $inner-columns: 1, 
+                $inner-rows: 3);
+            @include offset-left(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $height: 2);
+                @include title-setting(
+                    $size:xs,
+                    $h:left, 
+                    $v:bottom);
+            }
+        }
+    }
+    
+    @include mq($from:tablet-portrait) {
+        .hero {
+            @include cols(14);
+            @include offset-left(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:14, 
+                    $height:3);
+                @include title-setting(
+                    $size:xxl,
+                    $h:center, 
+                    $v:center);
+            }
+        }
+        .grid {
+            @include create-grid(
+                $col: 14, 
+                $inner-columns: 3, 
+                $inner-rows: 1);
+            @include offset-left(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $height: 2);
+                @include title-setting(
+                    $size:s,
+                    $h:left, 
+                    $v:bottom);
+            }
+        }
+    }
+    
+    @include mq($from:tablet-landscape) {
+        .hero {
+            @include cols(10);
+            @include offset-left(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:10, 
+                    $height:8);
+                @include title-setting(
+                    $size:xl,
+                    $h:center, 
+                    $v:center);
+            }
+        }
+        
+        .grid {
+            @include create-grid(
+                $col: 4, 
+                $inner-columns: 1, 
+                $inner-rows: 3);
+            @include offset-right(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:4);
+                @include title-setting(
+                    $size:s,
+                    $h:left, 
+                    $v:bottom);
+            }
+        }
+    }
+}
+
+#home-second {
+    @include mq($from:tablet-portrait) {
+        .hero {
+            @include cols(8);
+            @include offset-left(1);
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:8, 
+                    $height:6);
+                @include title-setting(
+                    $size:l, 
+                    $h:center, 
+                    $v:center);
+            }
+        }
+        .grid {
+            @include create-grid(
+                $col: 6, 
+                $inner-columns: 2, 
+                $inner-rows: 2);
+            @include offset-right(1)
+            
+            .card {
+                @include text-card;
+                @include image-setting(
+                    $width:3, 
+                    $height:2);
+                @include title-setting(
+                    $size:xs,
+                    $h:left, 
+                    $v:top);
+            }
+        }
+    }
+}
+
+#home-third {
+    .hero {
+        @include mq($from:mobile) {
+            @include cols(14);
+            @include offset-left(1);
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:14, 
+                    $height:3);
+                @include title-setting(
+                    $size:s, 
+                    $h:left, 
+                    $v:bottom);
+            }
+        }
+        
+        @include mq($from:tablet-portrait) {
+            @include cols(6);
+            @include offset-left(1);
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:6,
+                    $height:5);
+                @include title-setting(
+                    $size:l, 
+                    $h:left, 
+                    $v:bottom);
+            }
+        }
+        
+        @include mq($from:desktop) {
+            @include cols(6);
+            @include offset-left(1);
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $width:6, 
+                    $height:7);
+                @include title-setting(
+                    $size:xl, 
+                    $h:center, 
+                    $v:center);
+            }
+        }
+    }
+    
+    .grid {
+        @include mq($from:mobile) {
+            @include create-grid(
+                $col: 14, 
+                $inner-columns: 1, 
+                $inner-rows: 6);
+            @include offset-left(1)
+            
+            .card {
+                @include text-card;
+                @include image-setting(
+                    $width:14, 
+                    $height:2);
+                @include title-setting(
+                    $size:xs,
+                    $h:left, 
+                    $v:top);
+            }
+        }
+        
+        @include mq($from:tablet-portrait) {
+            @include create-grid(
+                $col: 8, 
+                $inner-columns: 3, 
+                $inner-rows: 2);
+            @include offset-right(1);
+            
+            .card {
+                @include text-card;
+                @include image-setting( 
+                    $height:1.3);
+                @include title-setting(
+                    $size:xs,
+                    $h:left, 
+                    $v:top);
+            }
+        }
+        
+        @include mq($from:desktop) {
+            @include create-grid(
+                $col: 8, 
+                $inner-columns: 3, 
+                $inner-rows: 2);
+            @include offset-right(1);
+            
+            .card {
+                @include text-card;
+                @include image-setting(
+                    $height:2);
+                @include title-setting(
+                    $size:xs,
+                    $h:left, 
+                    $v:top);
+            }
+        }
+    }
+}
+
+#home-fourth {
+    
+    .grid {
+        @include mq($from:tablet-portrait) {
+            @include create-grid(
+                $col: 8, 
+                $inner-columns: 4, 
+                $inner-rows: 2);
+            @include offset-left(1);
+            
+            .card {
+                @include text-card;
+                @include image-setting( 
+                    $height:1.5);
+                @include title-setting(
+                    $size:xs,
+                    $h:left, 
+                    $v:top);
+            }
+        }
+    }
+    
+    .hero {
+        @include mq($from:tablet-portrait) {
+            @include create-grid(
+                $col: 6, 
+                $inner-columns: 2, 
+                $inner-rows: 2);
+            @include offset-right(1);
+            
+            .card {
+                @include image-card;
+                @include image-setting(
+                    $height:3);
+                @include title-setting(
+                    $size:s, 
+                    $h:left, 
+                    $v:bottom);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

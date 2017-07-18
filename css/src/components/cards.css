@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'ArticulatExtraBold';
+  src: url("../font/ArticulatCFv2-Bold.woff2") format("woff2"), url("../font/ArticulatCFv2-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: 'ArticulatText';
+  src: url("../font/ArticulatCFv2-Text.woff2") format("woff2"), url("../font/ArticulatCFv2-Text.woff") format("woff"); }
+
+/* line 18, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+html {
+  font-family: 'ArticulatText', sans-serif;
+  color: #1A1829; }
+  /* line 22, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+  html strong, html b {
+    font-family: 'ArticulatExtraBold', sans-serif; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* line 18, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+    html {
+      font-size: 10.4px; } }
+  @media (min-width: 1024px) and (max-width: 1365px) {
+    /* line 18, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+    html {
+      font-size: 13px; } }
+  @media (min-width: 1366px) and (max-width: 1919px) {
+    /* line 18, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+    html {
+      font-size: 15.6px; } }
+  @media (min-width: 1920px) and (max-width: 2559px) {
+    /* line 18, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+    html {
+      font-size: 18.2px; } }
+  @media (min-width: 2560px) {
+    /* line 18, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+    html {
+      font-size: 26px; } }
+
+/* line 43, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  font-family: 'ArticulatExtraBold', sans-serif; }
+  /* line 49, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/base/_typography.scss */
+  h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter, h5::first-letter, h6::first-letter {
+    text-transform: uppercase; }
+
+/* line 5, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/components/cards.scss */
+.card {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
+
+/* line 14, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/components/cards.scss */
+.card-tags * {
+  float: left; }
+
+/* line 130, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/components/cards.scss */
+.card-image {
+  background-color: grey; }
+
+/* line 158, /Users/marxcie/Documents/Visaya/Visaya 2.0/css/src/components/cards.scss */
+.card-title-underline-bottom:after {
+  display: block;
+  background-color: aqua; }
+
+/*# sourceMappingURL=cards.css.map */

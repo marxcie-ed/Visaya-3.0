@@ -1,0 +1,241 @@
+@import '../base/_variables.scss';
+@import '../base/_functions.scss';
+@import '../base/_typography.scss';
+
+.card {
+    width: 100%;
+//    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tags {
+    * {
+        float: left;
+    }
+}
+
+@mixin image-card() {
+//    @include reset();
+    flex-flow: column;
+    justify-content: space-between;
+    align-content: space-between;
+    
+//     &:hover {
+//        .card-image {
+//            background-size: 107%;
+//        }
+//        .card-title {
+//            transform: scale(1.02); /* Standard syntax */     
+//        }
+//    }
+    .card-image {
+        @include card-overlay-dark;
+        background-position: center;
+        background-size: cover;
+//        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 2px;
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
+    }
+    
+    .card-tags {
+        @include card-tags;
+        position: absolute;
+        padding-left: $card-padding;
+        padding-top: $card-padding;
+        width: calc(100% - #{$card-padding});
+//        display: flex;
+//        float: left;
+        color: white;
+    }
+
+    .card-title {
+        position: absolute;
+        left: $card-padding;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        width: calc(100% - (#{$card-padding} * 2));
+//        height: calc(100% - #{$card-padding});
+        padding-bottom: $card-padding;
+        color: white;
+    }
+}
+
+
+@mixin text-card() {
+//    @include reset();
+    .card-image {
+        @include card-overlay-bright;
+        background-position: center;
+        background-size: cover;
+        bottom: 0;
+        border-radius: 2px;
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
+    }
+    
+    .card-tags {
+//        display: flex;
+        @include card-tags;
+        margin-top: $card-padding / 2;
+    }
+
+    .card-title {
+//        display: flex;
+        margin-top: $card-padding / 3;
+    }
+}
+
+
+@mixin text-card-row() {
+//    @include reset();
+    @include image-setting();
+    display: flex;
+    flex-direction: row;
+//    height: auto;
+    
+    .card-image {
+        @include card-overlay-bright;
+        background-position: center;
+        background-size: cover;
+        bottom: 0;
+        border-radius: 2px;
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
+    }
+    
+    .card-tags {
+        @include card-tags;
+        position: relative;
+//        left: calc(#{col-padding(2)} + #{$card-padding});
+        top: 0;
+        right: 0;
+        margin-top: 0;
+//        width: 100%;
+//        display: flex;
+    }
+
+    .card-title {
+        display: flex;
+        margin-left: $card-padding;
+        align-items: center;
+    }
+}
+
+.card-image {
+    background-color: grey;
+}
+@mixin card-tags {
+//    @include title-size(xxxs);
+    @include calculate-title(.9);
+    opacity: .5;
+    * {
+        padding-right: 10px;
+    }
+    
+    .card-likes {
+        &:before {
+            background-image: url('../images/Heart_font_awesome.svg');
+            background-position: center;
+            background-size: 20px 20px;
+            content: " ";
+            width: 20px;
+            height: 20xp;
+            position: absolute;
+            
+//            @extend .fa !optional;
+//            @extend .fa-camera-retro !optional;
+        }
+    }
+}
+
+.card-title-underline-bottom {
+    &:after {
+//        position: absolute;
+//        content: " ";
+//        top: $card-padding + 3px;
+//        left: -10px;
+//        width: 20px;
+//        height: 5px;
+        display: block;
+        background-color: aqua;
+//        align-self: flex-end;
+    }
+}
+
+@mixin card-overlay-dark {
+    &:before {
+        position: absolute;
+        content: " ";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 0;
+        background: rgba(26, 24, 41, 0.60);
+        border-radius: 2px;
+    }
+}
+
+@mixin card-overlay-bright {
+    &:before {
+//        position: absolute;
+        content: " ";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 0;
+        background: rgba(26, 24, 41, 0.10);
+    }
+}
+
+@mixin image-setting($width:null, $height:null) {
+    $base-height: 10vh;
+    .card-image {
+        
+        @if $width == null {
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+        }
+        @else {
+            width: col-padding($width);
+            min-width: col-padding($width);
+            max-width: col-padding($width);
+        }
+        @if $height == null {
+            min-height: 100%;
+        }
+        @else {
+           min-height: $base-height * $height;
+        }
+    }
+}
+
+@mixin title-setting($size, $h:center, $v:center) {
+    @if $h == left {
+        $h: flex-start;
+    }
+    @if $h == right {
+        $h: flex-end;
+    }
+    @if $v == top {
+        $v: flex-start;
+    }
+    @if $v == bottom {
+        $v: flex-end;
+    }
+    .card-title {
+        @include title-size($size);
+        justify-content: $h;
+        align-items: $v;
+    }
+}

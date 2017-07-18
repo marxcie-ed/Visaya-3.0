@@ -1,0 +1,56 @@
+//@import '_variables.scss';
+//@import '../base/_mediaqueries.scss';
+//@import '../base/_functions.scss';
+
+* {
+    //    transition: all .5s ease-in-out
+}
+
+section {
+    margin: auto;
+    margin-bottom: 6em;
+    width: $width;
+}
+
+@media #{$mq-medium} {
+    section {
+//        min-height: 60vh;
+    }
+}
+
+@media #{$mq-small} {
+    section {
+//        min-height: 50vh;
+    }
+}
+
+@media #{$mq-large} {
+    section {
+//        min-height: 70vh;
+    }
+}
+
+
+
+//* {
+//    outline: 1px solid rgba(255, 0, 255, 0.5);
+//}
+
+//#grid-overlay {
+//    position: relative;
+//    margin: 0 !important;
+//    padding: 0 !important;
+//    height: 0px !important;
+//    
+//    @for $i from 1 through $cols {
+//        div:nth-child(#{$i}) { 
+//            width: col-padding(1);
+//            height: 100vh;
+//            left: calc(#{col-padding($i)} - #{col-padding(1)});
+//            position: fixed;
+//            background-color: red;
+//            z-index: 1000;
+//            opacity: .1; 
+//        }
+//    }
+//}

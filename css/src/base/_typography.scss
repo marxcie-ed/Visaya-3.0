@@ -1,0 +1,93 @@
+@import '../base/_variables.scss';
+@import '../base/_mediaqueries.scss';
+//@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+@font-face {
+  font-family: 'ArticulatExtraBold';
+  src:  url('../font/ArticulatCFv2-Bold.woff2') format('woff2'),
+        url('../font/ArticulatCFv2-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ArticulatText';
+  src:  url('../font/ArticulatCFv2-Text.woff2') format('woff2'),
+        url('../font/ArticulatCFv2-Text.woff') format('woff');
+}
+
+
+html {
+    font-family: 'ArticulatText', sans-serif;
+    color: $base-font-color;
+    
+    strong, b {
+        font-family: 'ArticulatExtraBold', sans-serif;
+    }
+    
+    @media #{$mq-small} {
+        font-size: $base-font-size * 0.8;
+    }
+    @media #{$mq-medium} {
+        font-size: $base-font-size;
+    }
+    @media #{$mq-large} {
+        font-size: $base-font-size * 1.2;
+    }
+    @media #{$mq-xlarge} {
+        font-size: $base-font-size * 1.4;
+    }
+    @media #{$mq-xxlarge} {
+        font-size: $base-font-size * 2;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    font-family: 'ArticulatExtraBold', sans-serif;
+    
+    &::first-letter {
+        text-transform: uppercase;
+    }
+}
+
+$font-size: .8em;
+$line-height: 1.1em;
+$letter-spacing: -0.05em;
+
+@mixin calculate-title($m) {
+    
+    font-size: $font-size * ($m / 1);
+//    line-height: $line-height * (10/$m);
+    line-height: 1.1em;
+    letter-spacing: $letter-spacing * ($m / 10);
+}
+
+@mixin title-size($size) {
+    h2 {
+        @if $size == xxxs {
+            @include calculate-title(0.8);
+        }
+        @if $size == xxs {
+            @include calculate-title(1);
+        }
+        @if $size == xs {
+            @include calculate-title(1.2);
+        }
+        @if $size == s {
+            @include calculate-title(1.6);
+        }
+        @if $size == m {
+            @include calculate-title(2.2);
+        }
+        @if $size == l {
+            @include calculate-title(3);
+        }
+        @if $size == xl {
+            @include calculate-title(4);
+        }
+        @if $size == xxl {
+            @include calculate-title(5.2);
+        }
+    }
+}
